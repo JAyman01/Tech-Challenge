@@ -99,4 +99,9 @@
     container: 'body'
   })
 })
+
+function reloadPage() {
+                        location.reload(true);
+
+                    }
 </script>
