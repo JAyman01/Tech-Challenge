@@ -76,23 +76,22 @@
         {{-- action="{{route('challenges.store')}}" method="POST" --}}
         <div class="modal-body row">
 
-            {{ csrf_field() }}
-            <div class="form-group">
+
 
               <label for="status" class="form-control-label">Status</label>
-              <select  name ="status" id="status" placeholder="Challenge Status" class="form-control">
+              <select  name ="status" id="status" placeholder="Challenge Status" class="form-control" style="margin:10%">
                 <option>Participant</option>
                 <option>Organizer</option>
                 <option>Admin</option>
               </select>
             </div>
 
-            <button type="button" class="btn btn-secondary pull-right btnThemed">Save Role</button>
+            <button type="button" class="btn btn-secondary pull-right btnThemed" style="margin:10%">Save Role</button>
 
         </div>
       </div>
     </div>
-</div>
+
 
 <script>
     $(function () {
