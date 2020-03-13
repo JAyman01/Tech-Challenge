@@ -25,13 +25,13 @@
                             </div>
                             <h1 style="margin-left:5%;"> Result List </h1>
 
-                            <button class="btn btn-secondary add-new btnThemed" data-toggle="modal" data-target="#AddModal"> <i class="fa fa-plus" aria-hidden="true"></i>Add </button>
 
                                 <table class="table table-striped "style="border:none">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Challenger</th>
+
+                                            <th scope="col">Challenger ID</th>
+                                            <th scope="col">Code</th>
                                             <th scope="col">Winner</th>
 
                                             <th scope="col" style="align-text:center">Action</th>
@@ -39,6 +39,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        @foreach($results as $result)
+                                        <tr>
+                                            <td scope="col">{{$result->id_challenge}}</td>
+                                            <td scope="col">
+                                                <a class=" theme" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                   See Code
+                                                  </a>
+
+                                                  <div class="collapse" id="collapseExample">
+                                                    <div class="card card-body">
+                                                        {{$result->code}}
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                            <td scope="col">{{$result->winner}}</td>
+
+                                            <td scope="col" > <button class="btn btn-secondary btnThemed" type="button" data-toggle="popover" title="Sorry" data-content="This feature is under maintain!"><i class="fas fa-trophy"></i> Set Winner</button>
+                                            </td>
+
+                                        </tr>
+                                        @endforeach
                                             @if(count($results) < 1)
                                         <tr>
                                          <td colspan="10" class="text-center">There is no result available yet!</td>
@@ -54,3 +76,5 @@
 
 
 @endsection
+
+

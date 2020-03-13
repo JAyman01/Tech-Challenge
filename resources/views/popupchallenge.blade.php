@@ -53,7 +53,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <h4 class="modal-title">Edit Challenge :</h4>
-                          <button type="button" class="close" onclick="reloadPage()"data-dismiss="modal">
+                          <button type="button" class="close" data-dismiss="modal">
                             <span>&times;</span>
                           </button>
                         </div>

@@ -18,22 +18,56 @@
 <div class="container" style="margin-top:5%">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card"style="border:none">
-                <div class="card-header themeColored" >Organizers</div>
+            <div class="card" style="border:none">
+                <div class="card-header themeColored" ></div>
+                        <div class="card-body">
+                            <div>
+                               {{-- // @include('popupchallenge') --}}
+                            </div>
+                            <h1 style="margin-left:5%;"> User List </h1>
 
-                <div class="card-body">
+                            <button class="btn btn-secondary add-new btnThemed" data-toggle="modal" data-target="#AddModal"> <i class="fa fa-plus" aria-hidden="true"></i>Add </button>
+
+                                <table class="table table-striped "style="border:none">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Role</th>
+
+                                            <th scope="col" style="align-text:center">Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach($organizers as $user)
+                                        <tr>
+                                            <td scope="col">{{$user->id}}</td>
+                                            <td scope="col">{{$user->name}}</td>
+                                            <td scope="col">{{$user->role}}</td>
+
+                                            <td  > <button class="btn btn-secondary btnThemed" type="button" data-toggle="popover" title="Sorry" data-content="This feature is under maintain!"><i class="fas fa-trophy"></i> Set Role</button>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                            @if(count($organizers) < 1)
+                                        <tr>
+                                         <td colspan="10" class="text-center">There is no result available yet!</td>
+                                        </td>
+                                      </tr>
+                                      @endif
+                                    </tbody>
+                                </table>
+                </div></div></div></div></div>
 
 
-
-
-
-
-
-
-
-                      </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
+
+<script>
+    $(function () {
+  $('.example-popover').popover({
+    container: 'body'
+  })
+})
+</script>

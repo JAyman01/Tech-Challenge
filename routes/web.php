@@ -18,12 +18,19 @@ Route::get('/', function () {
 Route::get('/challenges', 'ChallengeController@index')->name('challenges');
 Route::resource('challenges', 'ChallengeController');
 
-Route::get('/organizers', function () {
-    return view('organizer');
-});
+Route::get('/organizers', 'OrganizerController@index')->name('organizers');
+Route::resource('organizers', 'OrganizerController');
+Route::post('/organizers/updateChallenge', 'OrganizerController@updateUser')->name('updateCh');
+
+Route::get('/organizers/changeStatus/{id}', 'OrganizerController@changeStatus')->name('changeStatus');
+Auth::routes();
 Route::get('/admins', function () {
     return view('admin');
 });
+
+// Route::get('/organizers', function () {
+//     return view('organizer');
+// });
 
 Route::resource('results', 'ParticipationController');
 Route::get('/results', 'ParticipationController@index')->name('results');
@@ -37,3 +44,7 @@ Auth::routes();
 Route::get('/challenges/changeStatus/{id}', 'ChallengeController@changeStatus')->name('changeStatus');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
+Route::get('/organizer', 'OrganizerController@index')->name('organizer')->middleware('organizer');
+Route::get('/participant', 'ParticipantController@index')->name('participant')->middleware('participant');
