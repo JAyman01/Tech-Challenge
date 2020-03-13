@@ -86,7 +86,7 @@
               </select>
             </div>
 
-            <button type="button" class="btn btn-secondary pull-right btnThemed" style="margin:10%">Save Role</button>
+            <button type="button" class="btn btn-secondary pull-right btnThemed" onclick="reloadPage()" data-dismiss="modal" style="margin:10%">Save Role</button>
 
         </div>
       </div>
