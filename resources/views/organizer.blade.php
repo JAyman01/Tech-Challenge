@@ -26,7 +26,6 @@
                             </div>
                             <h1 style="margin-left:5%;"> User List </h1>
 
-                            <button class="btn btn-secondary add-new btnThemed" data-toggle="modal" data-target="#AddModal"> <i class="fa fa-plus" aria-hidden="true"></i>Add </button>
 
                                 <table class="table table-striped "style="border:none">
                                     <thead>
