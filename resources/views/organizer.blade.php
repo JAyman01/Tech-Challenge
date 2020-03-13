@@ -46,7 +46,7 @@
                                             <td scope="col">{{$user->name}}</td>
                                             <td scope="col">{{$user->role}}</td>
 
-                                            <td  > <button class="btn btn-secondary btnThemed" type="button" data-toggle="popover" title="Sorry" data-content="This feature is under maintain!"><i class="fas fa-trophy"></i> Set Role</button>
+                                            <td  > <button class="btn btn-secondary btnThemed"  data-toggle="modal" data-target="#AddModal"type="button" data-toggle="popover" title="Sorry" data-content="This feature is under maintain!"><i class="fas fa-trophy"></i> Set Role</button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -62,6 +62,37 @@
 
 
 @endsection
+
+
+<div class="modal fade" id="AddModal"  >
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header themeColored">
+          <h4 class="modal-title" style="color:white">Change Role:</h4>
+          <button type="button"  class="close" onclick="reloadPage()" data-dismiss="modal">
+            <span style="color:white">&times;</span>
+          </button>
+        </div>
+        {{-- action="{{route('challenges.store')}}" method="POST" --}}
+        <div class="modal-body row">
+
+            {{ csrf_field() }}
+            <div class="form-group">
+
+              <label for="status" class="form-control-label">Status</label>
+              <select  name ="status" id="status" placeholder="Challenge Status" class="form-control">
+                <option>Participant</option>
+                <option>Organizer</option>
+                <option>Admin</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-secondary pull-right btnThemed">Save Role</button>
+
+        </div>
+      </div>
+    </div>
+</div>
 
 <script>
     $(function () {
